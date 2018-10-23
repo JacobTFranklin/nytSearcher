@@ -1,0 +1,11 @@
+header {
+    margin-bottom: 25px;
+}
+footer, .push {
+    height: 50px;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
