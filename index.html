@@ -4,13 +4,14 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>NYT Searcher</title>
+        <title>Train Time Table</title>
 
         <!--External CSS-->
-        <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
                 crossorigin="anonymous">
-
+                <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </head>
 
 <body>
@@ -18,66 +19,73 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>🗞️ NewYork Times Searcher</h1>
+        <h1>Anytime Train is Here</h1>
         <!--Search Parameters Div-->
         <div class="card" id="parametersDiv">
             <div class="card-header">
-                Search Parameters
+                <div class = "row"> 
+                        <div class = "col-sm-7">Display</div>
+                        <div class = "col-sm-5" id="time">a</div>
+                </div>
+                
             </div>
             <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Search Term:</label>
-                        <input type="text" class="form-control" id="searchTerm">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Number of Records to Retrieve:</label>
-                        <input type="number" class="form-control" id="numberRecords">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Start Year (Optional):</label>
-                        <input type="date" class="form-control" id="startYear">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">End Year (Optional):</label>
-                        <input type="date" class="form-control" id="endYear">
-                    </div>
-                </form>
-                <button type="button" class="btn btn-primary btn-sm" id="searchButton">🔍Search</button>
-                <button type="button" class="btn btn-primary btn-sm" id="clearButton">🗑️Clear</button>
+                    <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Train Name </th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency</th>
+                                <th scope="col">Next Arrival (CST) </th>
+                                <th scope="col">Minutes Left</th>
+                              </tr>
+                            </thead>
+                            <tbody id="values"> <!-- data goes here-->
+                            </tbody>
+                          </table>
+                
             </div>
         </div>
         <br>
         <!--Results Div-->
         <div class="card">
             <div class="card-header">
-                    📰 Top Articles
+                    🚂 Train Info
             </div>
             <div class="card-body" id="resultsDiv">
+                    <form>
+                            <div class="form-group">
+                                <label>Train Name:</label>
+                                <input type="text" class="form-control" id="trainName">
+                            </div>
+                            <div class="form-group">
+                                <label>Destination:</label>
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+                            <div class="form-group">
+                                <label >First Train Time (HH:MM) : </label>
+                                <input type="text" class="form-control" id="firstTrain">
+                            </div>
+                            <div class="form-group">
+                                <label>Frequency (Minutes) :</label>
+                                <input type="number" class="form-control" id="frequency">
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-primary btn-sm" id="add">Submit</button>
             </div>
-        
-        
-        
+               
         </div>
-
-
-
-
 
     
     </div>
 </div>
 
-<div class="push">
-</div>
 
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <center>Copyright 2018</center>
-    </div>
-</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"> </script>
+<script src="assets/javascript/javascript.js"></script>
 
 </body>
 
